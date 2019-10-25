@@ -15,7 +15,7 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 socket.setdefaulttimeout(3)
 
 # what is the host to connect to
-#host = "10.64.240.173"
+#host = "109.64.40.173"
 # what is the port you want to scan
 #port = 111 
 
