@@ -2,6 +2,8 @@
 
 # import socket library to help us scan for ports
 import socket
+# the import below is python3 and above
+from termcolor import colored
 
 # creating a socket object and assigning it to sock, 
 # and we are going to use the AF_INET which says it is going
@@ -18,15 +20,21 @@ socket.setdefaulttimeout(3)
 #port = 111 
 
 # get user input instead of hard coding the IP or the port
-host = raw_input("Please type the IP address you want to scan: ")
+# raw_input for python2 and input for python3
+host = input("Please type the IP address you want to scan: ")
+
 # we have to wrap it in an int because it is going to be pure numbers
 # that the sock.connect_ex is going to do
-port = int(raw_input("Please type the port you want to scan: "))
+#port = int(raw_input("Please type the port you want to scan: "))
 
 def portscanner(port):
     if sock.connect_ex((host,port)):
-        print "port %d is closed" % (port)
+        # adding colours so we can see the difference
+        print(colored("port %d is closed" % (port), 'red'))
     else:
-        print "port %d is open" % (port)
+        print(colored("port %d is open" % (port), 'green'))
 
-portscanner(port);
+# scanning the first 1000 ports for the
+# give ip address
+for port in range(1, 1000):
+    portscanner(port);
