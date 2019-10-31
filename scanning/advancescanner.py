@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+# to syntax check run
+# python -m py_compile <filename>
+
 from socket import *
 # library below will allow us to specify
 # help options that will get prompted for the user

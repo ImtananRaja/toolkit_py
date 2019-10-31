@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+# to syntax check run
+# python -m py_compile <filename>
+
 # import socket library to help us scan for ports
 import socket
 # the import below is python3 and above

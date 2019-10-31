@@ -2,6 +2,8 @@
 
 import socket
 
+# to syntax check run
+# python -m py_compile <filename>
 
 def returnbanner(ip, port):
     try:
@@ -36,3 +38,4 @@ if __name__ == '__main__':
 # response is [+] 10.64.240.204: SSH-2.0-OpenSSH_4.7p1 Debian-8ubuntu1
 # you can use the 'SSH-2.0-OpenSSH_4.7p1 Debian-8ubuntu1'
 # and search for exploits/vunerbilities
+
