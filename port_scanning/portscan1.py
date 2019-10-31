@@ -37,7 +37,7 @@ def portscanner(port):
     else:
         print(colored("port %d is open" % (port), 'green'))
 
-# scanning the first 1000 ports for the
+# port_scanning the first 1000 ports for the
 # give ip address
 for port in range(1, 1000):
     portscanner(port);
