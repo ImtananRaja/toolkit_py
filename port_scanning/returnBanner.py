@@ -22,11 +22,11 @@ def returnbanner(ip, port):
 
 
 def main():
-    ip = raw_input("Enter target IP: ")
+    ip = input("Enter target IP: ")
     for port in range(1, 100):
         banner = returnbanner(ip, port)
         if banner:
-            print "[+] " + ip + "on Port " + str(port) + " : " + banner
+            print("[+] " + ip + "on Port " + str(port) + " : " + banner)
 
 
 if __name__ == '__main__':

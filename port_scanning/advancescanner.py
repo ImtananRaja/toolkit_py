@@ -9,26 +9,28 @@ from socket import *
 import optparse
 from threading import *
 
+
 def connScan(tgtHost, tgtPort):
     try:
         sock = socket(AF_INET, SOCK_STREAM)
         sock.connect((tgtHost, tgtPort))
-        print "%d/tcp Open" % tgtPort
+        print("%d/tcp Open" % tgtPort)
     except:
-        print "%d/tcp Closed" % tgtPort
+        print("%d/tcp Closed" % tgtPort)
     finally:
         sock.close()
+
 
 def portScan(tgtHost, tgtPorts):
     try:
         tgtIP = gethostbyname(tgtHost)
     except:
-        print 'Unknown host %s' % tgtHost
+        print('Unknown host %s' % tgtHost)
     try:
         tgtName = gethostbyaddr(tgtIP)
-        print "Scan results for: " + tgtName[0]
+        print("Scan results for: " + tgtName[0])
     except:
-        print 'Scan results for: ' + tgtIP
+        print('Scan results for: ' + tgtIP)
     setdefaulttimeout(1)
     for tgtPort in tgtPorts:
         # create a thread to check for ports available in the host
@@ -36,6 +38,7 @@ def portScan(tgtHost, tgtPorts):
         # args= the arguments to be passed into the function
         t = Thread(target=connScan, args=(tgtHost, int(tgtPort)))
         t.start()
+
 
 def main():
     # this will help the user understand how to use the program
@@ -50,12 +53,13 @@ def main():
     # we are going to split the string from the commas
     tgtPorts = str(options.tgtPorts).split(',')
     if (tgtHost == None) | (tgtPorts[0] == None):
-        print parser.usage
+        print(parser.usage)
         exit(0)
     portScan(tgtHost, tgtPorts)
 
+
 if __name__ == '__main__':
-	main()
+    main()
 
 # To call this program
 # python advancescanner.py -H 192.168.1.10 -p 8,10
