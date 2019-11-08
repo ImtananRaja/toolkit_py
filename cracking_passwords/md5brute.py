@@ -43,6 +43,17 @@ def getSha256(passFile, passwordHash):
     print(colored("Password not found in list", 'red'))
 
 
+def getSha512(passFile, passwordHash):
+    passFile.seek(0)
+    print(colored("Now running the sha512 hash decryption: ", 'yellow'))
+    for password in passFile.readlines():
+        print(colored("Trying: " + password.strip("\n"), 'yellow'))
+        sha512pass = hashlib.sha512(password.strip().encode()).hexdigest()
+        if passwordHash == sha512pass:
+            print(colored("We have a password match: " + password, 'green'))
+            return
+    print(colored("Password not found in list!", 'red'))
+
 # TODO: Create sha1, sha512, sha256 password decrypter and as many others in the hashlib library
 
 def main():
@@ -50,8 +61,9 @@ def main():
     passwordFile = input("Please specify the password file: ")
     passFile = tryOpen(passwordFile)
     # run the function to get md5 hashed password
-    getSha256(passFile, passwordHash)
-    getMd5Pass(passFile, passwordHash)
+    #getSha256(passFile, passwordHash)
+    #getMd5Pass(passFile, passwordHash)
+    getSha512(passFile, passwordHash)
 
 
 if __name__ == '__main__':
