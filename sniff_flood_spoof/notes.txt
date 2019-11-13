@@ -1,0 +1,12 @@
+# Mac changing, used to get around black/white listing
+# macchanger <options> <interface> # kali linux command
+macchanger --show eth0 # shows the mac address of the interface
+macchanger -r eth0 # randomly assigns a new mac address to the interface
+
+# To manually change your mac address in linux follow these steps
+1) ifconfig eht0 down
+2) ifconfig eth0 hw ether AA:BB:CC:DD:EE:FF # here we are saying the eth0 interface hardware ethernet change mac address to AA:BB etc
+3) ifconfig eht0 up
+# if after running them commands you fail to establish a connection with the internet then run
+service NetworkManager restart
+# hopefully this should fix it
