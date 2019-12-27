@@ -9,4 +9,10 @@ macchanger -r eth0 # randomly assigns a new mac address to the interface
 3) ifconfig eht0 up
 # if after running them commands you fail to establish a connection with the internet then run
 service NetworkManager restart
-# hopefully this should fix it
+# hopefully this should fix ito
+
+# arp spoofing
+you can use the scapy tool in kali to help spoof your mac address
+get the mac address adn ip address of the router and then send a arp broadcast message using scapy
+and then when you get a response from some machines. send a response back with the routers normal IP
+but with your own machines mac address
